@@ -10,8 +10,13 @@ pipeline {
         }
         stage('Docker') {
             steps {
-                sh 'docker images'
+                //sh 'docker images'
                 //sh 'svn --version'
+                docker.withRegistry('http://192.168.0.157:5000') {
+                    
+                    def customImage = docker.build("php")
+                    customImage.push()
+                }
             }
         }
     }
