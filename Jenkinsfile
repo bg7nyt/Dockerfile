@@ -8,5 +8,11 @@ pipeline {
                 sh 'svn --version'
             }
         }
+        stage('Docker') {
+            steps {
+                sh 'docker images'
+                //sh 'svn --version'
+            }
+        }
     }
 }
